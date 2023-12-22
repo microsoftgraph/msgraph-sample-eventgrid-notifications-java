@@ -16,6 +16,10 @@ import com.microsoft.graph.logger.DefaultLogger;
 import com.microsoft.graph.models.ChangeNotification;
 import com.microsoft.graph.serializer.DefaultSerializer;
 
+/**
+ * This deserializer handles deserializing the ChangeNotification class
+ * from the JSON payload by using the Microsoft Graph SDK's deserializer
+ */
 public class ChangeNotificationDeserializer extends JsonDeserializer<ChangeNotification> {
     @Override
     public ChangeNotification deserialize(JsonParser p, DeserializationContext ctxt)

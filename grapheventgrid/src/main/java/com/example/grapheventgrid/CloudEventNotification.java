@@ -8,6 +8,9 @@ import java.time.OffsetDateTime;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.microsoft.graph.models.ChangeNotification;
 
+/**
+ * Represents the JSON notification format sent by Azure Event Grid
+ */
 public class CloudEventNotification {
     private String type;
     private String specversion;

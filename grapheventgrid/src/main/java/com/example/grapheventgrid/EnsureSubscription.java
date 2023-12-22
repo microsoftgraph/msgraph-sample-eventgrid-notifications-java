@@ -20,6 +20,10 @@ import com.microsoft.graph.requests.SubscriptionCollectionPage;
 import jakarta.annotation.PostConstruct;
 import okhttp3.Request;
 
+/**
+ * This component gets invoked after startup of the application to
+ * ensure that the Microsoft Graph subscription exists
+ */
 @Component
 public class EnsureSubscription {
     private static final Logger LOG = LoggerFactory.getLogger(EnsureSubscription.class);
@@ -44,6 +48,10 @@ public class EnsureSubscription {
         final GraphServiceClient<Request> graphClient = Objects
             .requireNonNull(graphClientService.getGraphClient());
 
+        // Ensure a subscription is in place
+        // Note that GET /subscriptions only returns subscriptions
+        // owned by the calling application. So, if any are returned
+        // they are for this app.
         final SubscriptionCollectionPage subscriptions = Objects
             .requireNonNull(graphClient.subscriptions().buildRequest().get());
 
@@ -68,6 +76,7 @@ public class EnsureSubscription {
             newSubscription.clientState = "SomeSecretValue";
             newSubscription.notificationUrl = eventGridUrl;
             newSubscription.lifecycleNotificationUrl = eventGridUrl;
+            // Setting a short expire time for testing purposes
             newSubscription.expirationDateTime = OffsetDateTime.now().plus(1,
                 ChronoUnit.HOURS);
 

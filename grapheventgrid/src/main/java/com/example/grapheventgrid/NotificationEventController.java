@@ -29,6 +29,9 @@ import com.microsoft.graph.requests.GraphServiceClient;
 
 import okhttp3.Request;
 
+/**
+ * This controller handles requests from Azure Event Grid
+ */
 @RestController
 public class NotificationEventController {
     private static final Logger LOG = LoggerFactory
@@ -37,6 +40,12 @@ public class NotificationEventController {
     @Autowired
     private GraphClientService graphClientService;
 
+    /**
+     * Handles the validation request from Azure Event Grid
+     * @param requestOrigin The value of the "Webhook-Request-Origin" header
+     * @param requestRate The value of the "Webhook-Request-Rate" header
+     * @return 200 response with validation headers set
+     */
     @RequestMapping(path = "/", method = RequestMethod.OPTIONS)
     public ResponseEntity<Void> validateEndpoint(
         @RequestHeader("WEBHOOK-REQUEST-ORIGIN") final String requestOrigin,
@@ -57,6 +66,11 @@ public class NotificationEventController {
         return ResponseEntity.ok().headers(responseHeaders).build();
     }
 
+    /**
+     * Handles notifications sent from Azure Event Grid
+     * @param notification The deserialized notification payload.
+     * @return 202 Accepted
+     */
     @PostMapping("/")
     public ResponseEntity<Void> handleNotification(
         @RequestBody final CloudEventNotification notification) {
@@ -88,6 +102,10 @@ public class NotificationEventController {
         return ResponseEntity.accepted().build();
     }
 
+    /**
+     * Handles Microsoft.Graph.UserUpdated notifications
+     * @param notification The deserialized ChangeNotification from the data field of the original notification
+     */
     private void handleUserUpdate(@Nonnull ChangeNotification notification) {
         // The user was either created, updated, or soft-deleted.
         // The notification only contains the user's ID, so
@@ -119,6 +137,10 @@ public class NotificationEventController {
         }
     }
 
+    /**
+     * Handles Microsoft.Graph.UserDeleted notifications
+     * @param notification The deserialized ChangeNotification from the data field of the original notification
+     */
     private void handleUserDelete(@Nonnull ChangeNotification notification) {
         // The user was permanently deleted. The notification only contains
         // the user's ID, and we can no longer get the user from Graph.
@@ -127,6 +149,10 @@ public class NotificationEventController {
         LOG.info("User with ID {} was deleted", userId);
     }
 
+    /**
+     * Handles Microsoft.Graph.SubscriptionReauthorizationRequired notifications
+     * @param notification The deserialized ChangeNotification from the data field of the original notification
+     */
     private void handleSubscriptionRenewal(@Nonnull ChangeNotification notification) {
         // The subscription needs to be renewed
         final String subscriptionId = Objects.requireNonNull(notification.subscriptionId)

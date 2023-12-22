@@ -16,6 +16,9 @@ import com.microsoft.graph.requests.GraphServiceClient;
 
 import okhttp3.Request;
 
+/**
+ * This service provides an authenticated GraphServiceClient
+ */
 @Service
 public class GraphClientService {
     @Value("${azure.tenant-id}")
