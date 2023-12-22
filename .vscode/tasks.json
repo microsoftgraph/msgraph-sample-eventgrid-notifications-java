@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "gradle",
+      "id": "c:/Source/Repos/msgraph-sample-eventgrid-notifications-java/grapheventgridbuildgrapheventgrid",
+      "script": "build",
+      "description": "Assembles and tests this project.",
+      "group": "build",
+      "project": "grapheventgrid",
+      "buildFile": "C:/Source/Repos/msgraph-sample-eventgrid-notifications-java/grapheventgrid/build.gradle",
+      "rootProject": "grapheventgrid",
+      "projectFolder": "c:/Source/Repos/msgraph-sample-eventgrid-notifications-java/grapheventgrid",
+      "workspaceFolder": "c:/Source/Repos/msgraph-sample-eventgrid-notifications-java",
+      "args": "",
+      "javaDebug": false,
+      "problemMatcher": [
+        "$gradle"
+      ],
+      "label": "gradle: build"
+    },
+    {
+      "type": "gradle",
+      "id": "c:/Source/Repos/msgraph-sample-eventgrid-notifications-java/grapheventgridbootRungrapheventgrid",
+      "script": "bootRun",
+      "description": "Runs this project as a Spring Boot application.",
+      "group": "application",
+      "project": "grapheventgrid",
+      "buildFile": "C:/Source/Repos/msgraph-sample-eventgrid-notifications-java/grapheventgrid/build.gradle",
+      "rootProject": "grapheventgrid",
+      "projectFolder": "c:/Source/Repos/msgraph-sample-eventgrid-notifications-java/grapheventgrid",
+      "workspaceFolder": "c:/Source/Repos/msgraph-sample-eventgrid-notifications-java",
+      "args": "",
+      "javaDebug": true,
+      "problemMatcher": [
+        "$gradle"
+      ],
+      "label": "gradle: bootRun"
+    }
+  ]
+}
