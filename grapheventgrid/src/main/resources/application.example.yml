@@ -1,0 +1,8 @@
+azure:
+  tenant-id: YOUR_TENANT_ID
+  client-id: YOUR_CLIENT_ID
+  client-secret: 'YOUR_CLIENT_SECRET'
+  subscription-id: YOUR_AZURE_SUBSCRIPTION_ID
+  resource-group: YOUR_EVENT_GRID_RESOURCE_GROUP
+  event-grid-topic: YOUR_EVENT_GRID_TOPIC
+  location: YOUR_AZURE_LOCATION

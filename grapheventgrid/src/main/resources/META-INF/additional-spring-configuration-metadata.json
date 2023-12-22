@@ -1,0 +1,39 @@
+{
+  "properties": [
+    {
+      "name": "azure.tenant-id",
+      "type": "java.lang.String",
+      "description": "Your Azure tenant ID"
+    },
+    {
+      "name": "azure.client-id",
+      "type": "java.lang.String",
+      "description": "The application (client) ID of your app registration"
+    },
+    {
+      "name": "azure.client-secret",
+      "type": "java.lang.String",
+      "description": "The client secret of your app registration"
+    },
+    {
+      "name": "azure.subscription-id",
+      "type": "java.lang.String",
+      "description": "The ID of your Azure subscription"
+    },
+    {
+      "name": "azure.resource-group",
+      "type": "java.lang.String",
+      "description": "The Azure resource group where the partner topic should be created"
+    },
+    {
+      "name": "azure.event-grid-topic",
+      "type": "java.lang.String",
+      "description": "The name of the partner topic that should be created"
+    },
+    {
+      "name": "azure.location",
+      "type": "java.lang.String",
+      "description": "The location where the Azure resource group is located (for example: eastus)"
+    }
+  ]
+}
