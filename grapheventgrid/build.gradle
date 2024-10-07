@@ -17,7 +17,7 @@ repositories {
 
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-web'
-  implementation 'com.azure:azure-identity:1.13.3'
+  implementation 'com.azure:azure-identity:1.14.0'
   implementation 'com.microsoft.graph:microsoft-graph:5.80.0'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
